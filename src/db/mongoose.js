@@ -1,11 +1,10 @@
-
 const mongoose = require('mongoose')
 
-if ( process.env.NODE_ENV === 'production') {
-  var connectionURL = process.env.DB_CONNECTION_STRING
+if (process.env.NODE_ENV === 'production') {
+  var connectionURL = process.env.connectionURL
 } else {
-  const config = require('../config.js')
-  var connectionURL = config.connectionURL
+  const credentials = require('../config')
+  var connectionURL = credentials.connectionURL
 }
 
 mongoose.connect( connectionURL, {
